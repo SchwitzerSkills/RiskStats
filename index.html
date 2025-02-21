@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>NoRisk Leaderboard & Detail</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/x-icon" href="hglabor.png">
+  <link rel="stylesheet" href="styles.css?r=547173634873">
+</head>
+<body>
+
+  <div class="leaderboard-container">
+    <header>
+      <img src="norisk-logo.png" alt="NoRisk Relaxo Logo" class="norisk-logo" />
+      <h1><i class="fa-solid fa-trophy"></i> NoRisk Leaderboard</h1>
+    </header>
+
+    <div class="search-container">
+      <input type="text" id="playerInput" placeholder="Spielername eingeben" />
+      <button id="searchBtn"><i class="fa-solid fa-search"></i> Suchen</button>
+    </div>
+
+    <table id="leaderboard">
+      <colgroup>
+        <col style="width: 10%;" />
+        <col style="width: 20%;" />
+        <col style="width: 14%;" />
+        <col style="width: 14%;" />
+        <col style="width: 14%;" />
+        <col style="width: 14%;" />
+        <col style="width: 14%;" />
+      </colgroup>
+      <thead>
+        <tr>
+          <th title="Rang" data-sort="rank"><i class="fa-solid fa-trophy"></i> Rang</th>
+          <th title="Spieler" data-sort="playerName"><i class="fa-solid fa-user"></i> Spieler</th>
+          <th title="Kills" data-sort="kills"><i class="fa-solid fa-crosshairs"></i> Kills</th>
+          <th title="Deaths" data-sort="deaths"><i class="fa-solid fa-skull"></i> Deaths</th>
+          <th title="Highest Kill Streak" data-sort="highestKillStreak">
+            <i class="fa-solid fa-fire"></i> Highest<br>Kill Streak
+          </th>
+          <th title="XP" data-sort="xp"><i class="fa-solid fa-star"></i> XP</th>
+          <th title="Current Kill Streak" data-sort="currentKillStreak">
+            <i class="fa-solid fa-fire-flame-curved"></i> Current<br>Kill Streak
+          </th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <div class="player-detail-container" id="playerDetail">
+    <button class="back-btn" id="backBtn">
+      <i class="fa-solid fa-arrow-left"></i> Zurück
+    </button>
+    <header>
+      <img src="norisk-logo.png" alt="NoRisk Relaxo Logo" class="norisk-logo" />
+      <h2><i class="fa-solid fa-user"></i> Spieler Details</h2>
+    </header>
+    <div class="detail-content">
+      <img id="detailSkin" class="detail-skin" src="" alt="Skin" />
+      <h2 id="detailName"></h2>
+      <p class="detail-uuid" id="detailUUID"></p>
+
+      <div class="detail-stats">
+        <div class="stats-box">
+          <h3>Allgemein <i class="fa-solid fa-info-circle"></i></h3>
+          <div class="stat-line">
+            <span><i class="fa-solid fa-crosshairs"></i> Kills:</span>
+            <span id="detailKills">0</span>
+          </div>
+          <div class="stat-line">
+            <span><i class="fa-solid fa-skull"></i> Deaths:</span>
+            <span id="detailDeaths">0</span>
+          </div>
+          <div class="stat-line">
+            <span><i class="fa-solid fa-star"></i> XP:</span>
+            <span id="detailXP">0</span>
+          </div>
+        </div>
+        <div class="stats-box">
+          <h3>Kampf <i class="fa-solid fa-fist-raised"></i></h3>
+          <div class="stat-line">
+            <span><i class="fa-solid fa-fire"></i> HighestStreak:</span>
+            <span id="detailHighestStreak">0</span>
+          </div>
+          <div class="stat-line">
+            <span><i class="fa-solid fa-fire-flame-curved"></i> CurrentStreak:</span>
+            <span id="detailCurrentStreak">0</span>
+          </div>
+          <div class="stat-line">
+            <span><i class="fa-solid fa-balance-scale"></i> KD:</span>
+            <span id="detailKD">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?r=37173634873"></script>
+</body>
+</html>
