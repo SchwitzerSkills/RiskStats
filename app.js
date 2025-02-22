@@ -173,6 +173,18 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentSortDirection = null;
 
   document.querySelectorAll("thead th").forEach(th => {
+
+    const column = th.getAttribute("data-sort");
+    if(column == "kills"){
+      th.classList.add("sorted");
+      currentSortColumn = column;
+      currentSortDirection = "desc";
+      
+      const icon = document.createElement("i");
+      icon.classList.add("sort-icon", "fa-solid", "fa-arrow-down");
+      th.appendChild(icon);
+    }
+
     th.addEventListener("click", function() {
       const column = this.getAttribute("data-sort");
       if (column === "rank" || column === "playerName") return;
@@ -183,9 +195,9 @@ document.addEventListener("DOMContentLoaded", () => {
           const icon = el.querySelector(".sort-icon");
           if (icon) icon.remove();
         });
-        currentSortColumn = "kills";
+        currentSortColumn = "random";
         currentSortDirection = "desc";
-        fetchLeaderboard("kills", 1, "desc");
+        fetchLeaderboard("random", 1, "desc");
       } else {
         document.querySelectorAll("thead th").forEach(el => {
           el.classList.remove("sorted");
@@ -203,7 +215,6 @@ document.addEventListener("DOMContentLoaded", () => {
         fetchLeaderboard(column, 1, currentSortDirection);
       }
     });
-
   });
 
   document.getElementById("backBtn").addEventListener("click", hidePlayerDetail);
